@@ -9,7 +9,7 @@ import org.joda.time.Duration
 
 object ServingPipeline {
 
-  // e.g. replace this with loading the model from a GCS bucket
+  // e.g. replace this with loading a pretrained model from a GCS bucket
   val (x, y) = loadBreastCancerDataset
   val trainedModel: LogisticRegression = LogisticRegression().fit(x, y)
 
@@ -21,7 +21,8 @@ object ServingPipeline {
       .textFile(getClass.getResource("breast_cancer.csv").toString)
 
       // put all examples that arrive to the pipeline within the same 10 millisecond interval into
-      // a batch (note that intervals are non-overlapping), i.e. emit data every 10 milliseconds
+      // a batch (note that intervals are non-overlapping), i.e. emit data every 10 milliseconds,
+      // triggering should be tuned for optimal throughput
       .withGlobalWindow(WindowOptions(
         trigger = Repeatedly.forever(AfterProcessingTime.pastFirstElementInPane().plusDelayOf(Duration.millis(10))),
         accumulationMode = AccumulationMode.DISCARDING_FIRED_PANES,
