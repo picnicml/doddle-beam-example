@@ -7,7 +7,12 @@ sbt run --runner=DirectRunner
 ```
 An example output:
 ```
+processing a batch of 72 examples
+processing a batch of 72 examples
+processing a batch of 71 examples
+processing a batch of 71 examples
 predicted probability: 0.9991 --- label: 1.0
+predicted probability: 0.9901 --- label: 1.0
 predicted probability: 0.0000 --- label: 0.0
 predicted probability: 0.9998 --- label: 1.0
 predicted probability: 0.9235 --- label: 1.0
@@ -15,6 +20,7 @@ predicted probability: 0.9990 --- label: 1.0
 predicted probability: 0.9951 --- label: 1.0
 predicted probability: 0.0070 --- label: 0.0
 predicted probability: 0.0012 --- label: 0.0
+predicted probability: 0.9997 --- label: 1.0
 ...
 ```
 
