@@ -24,4 +24,14 @@ predicted probability: 0.9997 --- label: 1.0
 ...
 ```
 
+### Setup
+To run the examples locally you will need to publish a local snapshot version of the repository:
+```
+git clone https://github.com/picnicml/doddle-model.git
+cd doddle-model
+sbt publishLocal
+```
+Ensure the published version matches the version contained within the `project/Dependencies.scala` file.
+
+### Resources
 The breast cancer dataset is from [UCI Machine Learning Repository. Irvine, CA: University of California, School of Information and Computer Science, Dua, D. and Karra Taniskidou, E.](http://archive.ics.uci.edu/ml)
